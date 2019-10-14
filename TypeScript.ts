@@ -1,4 +1,6 @@
 // typescriptlang.org
+// git: npm install -g typescript (-g installs globally. Important.)
+// tsc --init
 
 var a: number = 1;
 function add1(nbr: number): number {
@@ -27,3 +29,40 @@ var fn = () => {
 }
 fn();
 console.log("ok");
+
+
+
+class Customer {
+    id: number;
+    name: string;
+
+    get Id() { return this.id; }
+    set Id(id: number) { this.id = id; }
+
+    get Name() { return this.name; }
+    set Name(name: string) { this.name = name; }
+
+    get Sales() { return this.sales; }
+    set Sales(sales: number) = 
+
+    constructor(id: number, name: string, public sales: number) {
+        this.id = id;
+        this.name = name;
+        this.sales = sales;
+    }
+
+    log(): void {
+        console.log(`id is ${this.id}` +
+            ` and name is ${this.name}` +
+            ` and sales is ${this.sales}`);
+    }
+}
+let c: Customer = new Customer(1, "MAX", 1000);
+c.log();
+
+let custs: Customer[] = [];
+custs.push(c);
+
+for (let cust of custs) {
+    cust.log();
+}
